@@ -75,6 +75,7 @@ const teclado = {
                 let nuevoDiv = document.createElement("div");
                 nuevoDiv.appendChild(document.createTextNode(texto));
                 document.getElementById("mensajes").appendChild(nuevoDiv); 
+                document.getElementById("textarea").value = "";
             })
         })
     },
