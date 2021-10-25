@@ -43,7 +43,16 @@ const teclado = {
         });
       },
     //TODO Funcionamiento de la tecla borrar primera letra
-
+    del_start() {
+        const buttons = document.querySelectorAll(".del_start");
+    
+        buttons.forEach((delstart) => {
+          delstart.addEventListener("click", () => {
+            let texto = document.getElementById("1").value; 
+            document.getElementById("1").value = texto.substring(1);
+          });
+        });
+      },
     //TODO Funcionamiento de la tecla CE
 
     //TODO Funcionamiento de la tecla enviar
@@ -59,4 +68,5 @@ const teclado = {
     teclado.enter();
     teclado.del_all();
     teclado.del_end();
+    teclado.del_start();
   });
