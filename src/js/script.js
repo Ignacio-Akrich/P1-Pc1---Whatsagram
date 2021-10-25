@@ -32,7 +32,16 @@ const teclado = {
         });
       },
     //TODO Funcionamiento de la tecla borrar ultima letra
-
+    del_end() {
+        const buttons = document.querySelectorAll(".del_end");
+    
+        buttons.forEach((delend) => {
+          delend.addEventListener("click", () => {
+            let texto = document.getElementById("1").value; 
+            document.getElementById("1").value = texto.slice(0,-1) ;
+          });
+        });
+      },
     //TODO Funcionamiento de la tecla borrar primera letra
 
     //TODO Funcionamiento de la tecla CE
@@ -49,4 +58,5 @@ const teclado = {
     teclado.init();
     teclado.enter();
     teclado.del_all();
+    teclado.del_end();
   });
