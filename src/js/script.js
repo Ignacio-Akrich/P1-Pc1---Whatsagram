@@ -37,8 +37,8 @@ const teclado = {
     
         buttons.forEach((delend) => {
           delend.addEventListener("click", () => {
-            let texto = document.getElementById("1").value; 
-            document.getElementById("1").value = texto.slice(0,-1) ;
+            let texto = document.getElementById("textarea").value; 
+            document.getElementById("textarea").value = texto.slice(0,-1) ;
           });
         });
       },
@@ -48,8 +48,8 @@ const teclado = {
     
         buttons.forEach((delstart) => {
           delstart.addEventListener("click", () => {
-            let texto = document.getElementById("1").value; 
-            document.getElementById("1").value = texto.substring(1);
+            let texto = document.getElementById("textarea").value; 
+            document.getElementById("textarea").value = texto.substring(1);
           });
         });
       },
