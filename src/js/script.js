@@ -66,7 +66,18 @@ const teclado = {
         });
       },
     //TODO Funcionamiento de la tecla enviar
+    print(){
+        const buttons = document.querySelectorAll(".print");
 
+        buttons.forEach((toprint)=>{
+            toprint.addEventListener("click",() =>{
+                let texto = document.getElementById("textarea").value;
+                let nuevoDiv = document.createElement("div");
+                nuevoDiv.appendChild(document.createTextNode(texto));
+                document.getElementById("mensajes").appendChild(nuevoDiv); 
+            })
+        })
+    },
     //TODO Funcionamiento de la tecla mayúsculas
 
     //TODO Funcionamiento de la tecla de emojis
@@ -80,4 +91,5 @@ const teclado = {
     teclado.del_end();
     teclado.del_start();
     teclado.del_word();
+    teclado.print();
   });
