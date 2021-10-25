@@ -22,7 +22,15 @@ const teclado = {
         });
       },
     //TODO Funcionamiento de la tecla C
-
+    del_all() {
+        const buttons = document.querySelectorAll(".del_all");
+    
+        buttons.forEach((delall) => {
+          delall.addEventListener("click", () => {
+            document.getElementById("textarea").value = "";
+          });
+        });
+      },
     //TODO Funcionamiento de la tecla borrar ultima letra
 
     //TODO Funcionamiento de la tecla borrar primera letra
@@ -40,4 +48,5 @@ const teclado = {
   window.addEventListener("DOMContentLoaded", function () {
     teclado.init();
     teclado.enter();
+    teclado.del_all();
   });
