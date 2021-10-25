@@ -11,7 +11,16 @@ const teclado = {
       });
     },
     //TODO Funcionamiento de la tecla enter
-
+    enter() {
+        const buttons = document.querySelectorAll(".enter");
+    
+        buttons.forEach((enter) => {
+          enter.addEventListener("click", () => {
+            let entr = "\n";
+            document.getElementById("textarea").value += entr;
+          });
+        });
+      },
     //TODO Funcionamiento de la tecla C
 
     //TODO Funcionamiento de la tecla borrar ultima letra
@@ -30,4 +39,5 @@ const teclado = {
   
   window.addEventListener("DOMContentLoaded", function () {
     teclado.init();
+    teclado.enter();
   });
