@@ -54,7 +54,17 @@ const teclado = {
         });
       },
     //TODO Funcionamiento de la tecla CE
-
+    del_word() {
+        const buttons = document.querySelectorAll(".del_word");
+    
+        buttons.forEach((delword) => {
+          delword.addEventListener("click", () => {
+            let texto = document.getElementById("textarea").value;
+            let lastIndex = texto.lastIndexOf(" "); 
+            document.getElementById("textarea").value = texto.substring(0, lastIndex);
+          });
+        });
+      },
     //TODO Funcionamiento de la tecla enviar
 
     //TODO Funcionamiento de la tecla mayúsculas
@@ -69,4 +79,5 @@ const teclado = {
     teclado.del_all();
     teclado.del_end();
     teclado.del_start();
+    teclado.del_word();
   });
