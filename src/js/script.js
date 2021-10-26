@@ -1,4 +1,5 @@
 //TODO Crear las funcionalidades del las teclas del teclado virtual
+
 const teclado = {
     //TODO Funcionamiento de las teclas normales
     init() {
@@ -72,18 +73,42 @@ const teclado = {
         buttons.forEach((toprint)=>{
             toprint.addEventListener("click",() =>{
                 let texto = document.getElementById("textarea").value;
+                //document.getElementById("textarea").value = texto.replace("\n","<br>");
                 let nuevoDiv = document.createElement("div");
                 nuevoDiv.appendChild(document.createTextNode(texto));
                 document.getElementById("mensajes").appendChild(nuevoDiv); 
                 document.getElementById("textarea").value = "";
+
             })
         })
     },
     //TODO Funcionamiento de la tecla mayúsculas
+    mayus(){
+        const buttons = document.querySelectorAll(".mayus");
 
+        buttons.forEach((mayuscula) => {
+            mayuscula.addEventListener("click", () => {
+              if (teclas.className === "lowcase"){
+                document.getElementById("teclas").className = "upcase";
+              }else if(teclas.className === "upcase"){
+                //TODO Cuando clique cualquier boton ma cmabie a la clase lowcase
+                // if(init()){
+                  // document.getElementById("teclas").className = "lowcase";
+                // }else{
+                document.getElementById("teclas").className = "everupcase";
+              // }
+              }else{
+                document.getElementById("teclas").className = "lowcase";
+              }
+              estadoLetras();
+        })
+    })
+    },
     //TODO Funcionamiento de la tecla de emojis
  
   };
+
+  estadoLetras();
   
   window.addEventListener("DOMContentLoaded", function () {
     teclado.init();
@@ -93,4 +118,18 @@ const teclado = {
     teclado.del_start();
     teclado.del_word();
     teclado.print();
+    teclado.mayus();
   });
+
+  function estadoLetras(){
+    let teclas = document.getElementById("teclas");
+    let tecla = document.getElementsByClassName("button");
+    if (teclas.className == "lowcase"){
+      for(let i=1;i<tecla.length;i++){
+        tecla[i].textContent = tecla[i].textContent.toLowerCase();
+      }
+    }else {
+      for(let i= 1;i<tecla.length;i++){
+        tecla[i].textContent = tecla[i].textContent.toUpperCase();
+      }
+    }}
