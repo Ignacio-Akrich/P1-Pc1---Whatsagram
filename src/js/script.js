@@ -1,5 +1,4 @@
 //TODO Crear las funcionalidades del las teclas del teclado virtual
-
 const teclado = {
     //TODO Funcionamiento de las teclas normales
     init() {
@@ -8,6 +7,10 @@ const teclado = {
       buttons.forEach((button) => {
         button.addEventListener("click", () => {
           document.getElementById("textarea").value += button.textContent;
+          if (teclas.className == "upcase"){
+            document.getElementById("teclas").className = "lowcase";
+          }
+          estadoLetras();
         });
       });
     },
@@ -73,7 +76,7 @@ const teclado = {
         buttons.forEach((toprint)=>{
             toprint.addEventListener("click",() =>{
                 let texto = document.getElementById("textarea").value;
-                //document.getElementById("textarea").value = texto.replace("\n","<br>");
+                document.getElementById("textarea").innerHTML = texto.replace("\n","<br>");//Arreglar esta line que no funciona
                 let nuevoDiv = document.createElement("div");
                 nuevoDiv.appendChild(document.createTextNode(texto));
                 document.getElementById("mensajes").appendChild(nuevoDiv); 
@@ -89,14 +92,11 @@ const teclado = {
         buttons.forEach((mayuscula) => {
             mayuscula.addEventListener("click", () => {
               if (teclas.className === "lowcase"){
+                // letraMinus();
                 document.getElementById("teclas").className = "upcase";
               }else if(teclas.className === "upcase"){
-                //TODO Cuando clique cualquier boton ma cmabie a la clase lowcase
-                // if(init()){
-                  // document.getElementById("teclas").className = "lowcase";
-                // }else{
                 document.getElementById("teclas").className = "everupcase";
-              // }
+
               }else{
                 document.getElementById("teclas").className = "lowcase";
               }
@@ -124,12 +124,12 @@ const teclado = {
   function estadoLetras(){
     let teclas = document.getElementById("teclas");
     let tecla = document.getElementsByClassName("button");
-    if (teclas.className == "lowcase"){
+    if (teclas.className === "upcase" || teclas.className === "everupcase"){
       for(let i=1;i<tecla.length;i++){
-        tecla[i].textContent = tecla[i].textContent.toLowerCase();
+        tecla[i].textContent = tecla[i].textContent.toUpperCase();
       }
     }else {
       for(let i= 1;i<tecla.length;i++){
-        tecla[i].textContent = tecla[i].textContent.toUpperCase();
+        tecla[i].textContent = tecla[i].textContent.toLowerCase();
       }
     }}
