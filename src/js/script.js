@@ -81,6 +81,8 @@ const teclado = {
                 nuevoDiv.appendChild(document.createTextNode(texto));
                 document.getElementById("mensajes").appendChild(nuevoDiv); 
                 document.getElementById("textarea").value = "";
+                document.getElementById("teclas").className = "upcase";
+                estadoLetras();
 
             })
         })
