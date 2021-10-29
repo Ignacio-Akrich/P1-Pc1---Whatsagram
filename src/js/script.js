@@ -65,7 +65,10 @@ const teclado = {
       delword.addEventListener("click", () => {
         let texto = document.getElementById("textarea").value;
         let lastIndex = texto.lastIndexOf(" ");
-        document.getElementById("textarea").value = texto.substring(0,lastIndex);
+        document.getElementById("textarea").value = texto.substring(
+          0,
+          lastIndex
+        );
       });
     });
   },
@@ -76,11 +79,16 @@ const teclado = {
     buttons.forEach((toprint) => {
       toprint.addEventListener("click", () => {
         let texto = document.getElementById("textarea").value;
-        //document.getElementById("textarea").value = texto.replace(/\n/g,"<br>"); //Arreglar esta line que no funciona
+        let salto = document.createElement("br");
+        texto = texto.replace(/\n/g, salto);
         let nuevoDiv = document.createElement("div");
-        //saltoLinea();
+        nuevoDiv.className = "mensaje";
+        let horaDiv = document.createElement("div");
+        horaDiv.className = "hora";
         nuevoDiv.appendChild(document.createTextNode(texto));
         document.getElementById("mensajes").appendChild(nuevoDiv);
+        document.getElementById("mensajes").appendChild(horaDiv);
+        hora();
         document.getElementById("textarea").value = "";
         document.getElementById("teclas").className = "upcase";
         estadoLetras();
@@ -106,35 +114,35 @@ const teclado = {
     });
   },
   //TODO Funcionamiento de la tecla de emojis
-  emoji(){
+  emoji() {
     const buttons = document.querySelectorAll(".emoji");
 
     buttons.forEach((emoji) => {
-      emoji.addEventListener("click",() => {
+      emoji.addEventListener("click", () => {
         let emojis = document.getElementById("tecl_emoj");
-      if(emojis.style.display === "none"){
-        ocultarTeclado("teclas");
-        ocultarTeclado("tecl_emoj")
-        document.getElementsByClassName("emoji")[0].textContent = "⌨";
-      }else{
-        ocultarTeclado("teclas");
-        ocultarTeclado("tecl_emoj");
-        document.getElementsByClassName("emoji")[0].textContent = "😶";
-      }
-      })
-    })
-  }
+        if (emojis.style.display === "none") {
+          ocultarTeclado("teclas");
+          ocultarTeclado("tecl_emoj");
+          document.getElementsByClassName("emoji")[0].textContent = "⌨";
+        } else {
+          ocultarTeclado("teclas");
+          ocultarTeclado("tecl_emoj");
+          document.getElementsByClassName("emoji")[0].textContent = "😶";
+        }
+      });
+    });
+  },
 };
 
-function ocultarTeclado(id){
+
+function ocultarTeclado(id) {
   let tecla = document.getElementById(id);
   if (tecla.style.display === "none") {
     tecla.style.display = "block";
-} else {
+  } else {
     tecla.style.display = "none";
+  }
 }
-}
-
 
 function estadoLetras() {
   let teclas = document.getElementById("teclas");
@@ -148,21 +156,25 @@ function estadoLetras() {
       tecla[i].textContent = tecla[i].textContent.toLowerCase();
     }
   }
-};
-
-// function saltoLinea(){
-//   let message = document.getElementById("textarea").textContent;
-//   while (message.indexOf("\\n") !== -1) {
-//     message = message.replace("\\n", "<br />");
-//  }
-// }
+}
 
 //TODO Crear la funcion de fecha para que se printe al enviar un mensaje al enviar un mensaje
-function fecha(){
-const nombreMeses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+function fecha() {
+  const nombreMeses = ["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
   let date = new Date();
-  let actualDate = date.getDate() + ' de ' + nombreMeses[date.getMonth()] + ' de ' + date.getFullYear();
-document.getElementById("fecha").textContent = actualDate;
+  let actualDate = date.getDate() + " de " + nombreMeses[date.getMonth()] + " de " + date.getFullYear();
+  document.getElementById("fecha").textContent = actualDate;
+}
+
+function hora(){
+  let date = new Date();
+  let horaActual = date.getHours()+':'+date.getMinutes();
+  let mensaje = document.getElementsByClassName("hora")
+  let j = 0;
+  for(let i = 0 ; i<mensaje.length; i++){
+    j=i;
+  }
+  document.getElementsByClassName("hora")[j].textContent += horaActual
 }
 
 window.addEventListener("DOMContentLoaded", function () {
