@@ -106,7 +106,35 @@ const teclado = {
     });
   },
   //TODO Funcionamiento de la tecla de emojis
+  emoji(){
+    const buttons = document.querySelectorAll(".emoji");
+
+    buttons.forEach((emoji) => {
+      emoji.addEventListener("click",() => {
+        let emojis = document.getElementById("tecl_emoj");
+      if(emojis.style.display === "none"){
+        ocultarTeclado("teclas");
+        ocultarTeclado("tecl_emoj")
+        document.getElementsByClassName("emoji")[0].textContent = "⌨";
+      }else{
+        ocultarTeclado("teclas");
+        ocultarTeclado("tecl_emoj");
+        document.getElementsByClassName("emoji")[0].textContent = "😶";
+      }
+      })
+    })
+  }
 };
+
+function ocultarTeclado(id){
+  let tecla = document.getElementById(id);
+  if (tecla.style.display === "none") {
+    tecla.style.display = "block";
+} else {
+    tecla.style.display = "none";
+}
+}
+
 
 function estadoLetras() {
   let teclas = document.getElementById("teclas");
@@ -137,8 +165,6 @@ const nombreMeses=["enero","febrero","marzo","abril","mayo","junio","julio","ago
 document.getElementById("fecha").textContent = actualDate;
 }
 
-estadoLetras();
-
 window.addEventListener("DOMContentLoaded", function () {
   teclado.init();
   teclado.enter();
@@ -148,5 +174,6 @@ window.addEventListener("DOMContentLoaded", function () {
   teclado.del_word();
   teclado.print();
   teclado.mayus();
+  teclado.emoji();
   estadoLetras();
 });
