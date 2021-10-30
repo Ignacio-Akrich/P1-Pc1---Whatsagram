@@ -1,7 +1,47 @@
-/* TODO Crear el css del teclado virtual */
+/* TODO Crear el css con gid para .aplicacion */
 
-/* TODO Crear el css del fondo */
+body {
+  background-color: aqua;
+}
 
-/* TODO Crear el css de los mensajes */
+.aplicacion {
+  display: grid;
+  grid-template-rows: 60% 10% 30%;
+  grid-template-columns: 100%;
+}
 
-/* TODO Crear el css de la encabezado */
+/* TODO Crear el css mensajes */
+
+.fecha {
+  display: flex;
+  justify-content: space-around;
+  height: 35px;
+  align-items: center;
+
+}
+
+#fecha {
+  display: flex;
+  background-color: blueviolet;
+  
+}
+
+.mensajes {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin: 2px; 
+  overflow-y: scroll; 
+}
+/* TODO Crear el css area_texto */
+
+.area_texto {
+  display: flex;
+  background: #ffa115;
+}
+
+/* TODO Crear el css teclado */
+.teclado {
+  display: flex;
+  background: #ffa115;
+}

@@ -78,20 +78,19 @@ const teclado = {
 
     buttons.forEach((toprint) => {
       toprint.addEventListener("click", () => {
-        let texto = document.getElementById("textarea").value;
+        let texto = document.getElementById("textarea");
         let nuevoDiv = document.createElement("div");
         nuevoDiv.className = "mensaje";
-        let horaDiv = document.createElement("div");
-        horaDiv.className = "hora";
-        nuevoDiv.appendChild(document.createTextNode(texto));
+        nuevoDiv.appendChild(document.createTextNode(texto.value));
         document.getElementById("mensajes").appendChild(nuevoDiv);
-        document.getElementById("mensajes").appendChild(horaDiv);
-        saltoLinea();
         hora();
-        document.getElementById("textarea").value = "";
+        saltoLinea();
+        texto.value = "";
         document.getElementById("teclas").className = "upcase";
         estadoLetras();
         fecha();
+        // let element = document.getElementById("mensajes");
+        // element.scrollTop = element.scrollHeight;
       });
     });
   },
@@ -164,7 +163,8 @@ function saltoLinea(){
   for(let i = 0 ; i<mensaje.length; i++){
     j=i;
   }
-    document.getElementsByClassName("mensaje")[j].innerHTML = texto;
+  hora();
+    document.getElementsByClassName("mensaje")[j].innerHTML = texto +"<span>"+ horaActual +"</span>";
 }
 
 //TODO Crear la funcion de fecha para que se printe al enviar un mensaje al enviar un mensaje
@@ -177,13 +177,18 @@ function fecha() {
 
 function hora(){
   let date = new Date();
-  let horaActual = date.getHours()+':'+date.getUTCMinutes();
-  let mensaje = document.getElementsByClassName("hora")
+  if(date.getUTCMinutes()<10){
+     horaActual = date.getHours()+':'+0+date.getUTCMinutes();
+  }else{
+     horaActual = date.getHours()+':'+date.getUTCMinutes();
+  }
+  
+  let mensaje = document.getElementsByClassName("mensaje")
   let j = 0;
   for(let i = 0 ; i<mensaje.length; i++){
     j=i;
   }
-  document.getElementsByClassName("hora")[j].textContent += horaActual
+  document.getElementsByClassName("mensaje")[j].textContent += horaActual
 }
 
 window.addEventListener("DOMContentLoaded", function () {
