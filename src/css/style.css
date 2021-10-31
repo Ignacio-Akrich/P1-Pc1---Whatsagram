@@ -1,13 +1,26 @@
+/* TODO variavles de color */
+:root{
+  --color-fondo-fecha : rgb(220, 151, 123 , 0.83);
+  --color-letra-fecha : rgb(102, 99, 145);
+  --color-fondo-mensaje: rgb(173, 216, 230 , 0.43);
+  --color-hora:rgb(39, 39, 39);
+  --color-teclas:rgb(173,216,230 , 0.83);
+  --color-mayus-upcase:rgb(135,206,250 , 0.83);
+}
+
 /* TODO Crear el css con gid para .aplicacion */
 
 body {
-  background-color: aqua;
+background-image: url(images/fondo1.jpg);
+font-family: 'Zen Antique', serif; 
 }
 
 .aplicacion {
   display: grid;
   grid-template-rows: 60% 10% 30%;
   grid-template-columns: 100%;
+  height: 97vh;
+  width: 97vw;
 }
 
 /* TODO Crear el css mensajes */
@@ -17,13 +30,18 @@ body {
   justify-content: space-around;
   height: 35px;
   align-items: center;
-
 }
 
 #fecha {
   display: flex;
-  background-color: blueviolet;
-  
+  background-color: var(--color-fondo-fecha);
+  position: fixed;
+  font-size: 20px;
+  font-family: 'Zen Antique', serif;
+  color: var(--color-letra-fecha);
+  border-radius: 10px;
+  /* width: 63vw; */
+  justify-content: center;
 }
 
 .mensajes {
@@ -33,15 +51,119 @@ body {
   margin: 2px; 
   overflow-y: scroll; 
 }
+.mensajes>.fecha{
+  display: flex;
+  align-self: center;
+}
+
+span{
+  font-size: 10px;
+  color: var(--color-hora);
+}
+
+
+.mensaje{
+  display: flex;
+  border-radius: 6px;
+  background-color: var(--color-fondo-mensaje);
+  margin-top: 1em;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  word-break: break-word;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  
+}
 /* TODO Crear el css area_texto */
 
 .area_texto {
   display: flex;
-  background: #ffa115;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.area_texto>button{
+  height: 6vh;
+  width: 20vw;
+  border-radius: 15px;
+}
+
+textarea{
+  font-size: 20px;
+  font-family: 'Zen Antique', serif;
+  border-radius: 8px;
+  text-align: -webkit-auto;
+  height: 5vh;
+  width: 54vw; 
 }
 
 /* TODO Crear el css teclado */
 .teclado {
   display: flex;
-  background: #ffa115;
+  align-items: center;
+  justify-content: space-around;
+  align-content: center;
+}
+
+#teclas {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  border-radius: 15px;
+}
+
+#teclas>.button{
+  height: 6vh;
+  width: 9vw;
+  border-radius: 10px;
+}
+
+#teclas>#space{
+  height: 6vh;
+  width: 30vw;
+  border-radius: 10px;
+}
+.del_end,.del_start,.del_word,.del_all{
+  height: 6vh;
+  width: 9vw;
+  border-radius: 10px;
+}
+
+.mayus,.enter{
+  font-size: 22px;
+  height: 6vh;
+  width: 17vw;
+  border-radius: 10px;
+}
+
+
+#tecl_emoj>.button{
+  font-size: 22px;
+  height: 7vh;
+  width: 23vw;
+  border-radius: 15px;
+}
+
+#tecl_emoj{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+button {
+  background-color: var(--color-teclas);
+  box-shadow:0 0 5px rgba(0, 0, 0, 0.5);
+  transition: bottom 0.4s;
+  font-family: 'Zen Antique', serif;
+  font-size: 1em;
+}
+
+.upcase>.mayus{
+  background-color: var(--color-mayus-upcase) ;
+}
+
+.everupcase>.mayus{
+  background-color: var(--color-fondo-fecha);
 }
