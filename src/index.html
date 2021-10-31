@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Antique&display=swap" rel="stylesheet">
+  <title>Document</title>
+</head>
+<body>
+  <!--TODO Crear el div donde se muestran los mensajes -->
+  <div class="aplicacion">
+    <div id="mensajes" class="mensajes">
+      <div class="fecha">
+        <div id="fecha"></div>
+      </div>
+    </div>
+  <!--TODO crear el teclado virtual -->
+  <div class="area_texto">
+    <button type="button" class="emoji">😶</button>
+    <textarea id="textarea" class="text"></textarea>
+    <button type="submit" class="print">&#8658</button>
+  </div>
+  <div class="teclado" >
+      <div id="teclas" class="upcase">
+        <button type="button" class="button">1</button>
+        <button type="button" class="button">2</button>
+        <button type="button" class="button">3</button>
+        <button type="button" class="button">4</button>
+        <button type="button" class="button">5</button>
+        <button type="button" class="button">6</button>
+        <button type="button" class="button">7</button>
+        <button type="button" class="button">8</button>
+        <button type="button" class="button">9</button>
+        <button type="button" class="button">0</button>
+        <button type="button" class="button" >q</button>
+        <button type="button" class="button" >w</button>
+        <button type="button" class="button" >e</button>
+        <button type="button" class="button" >r</button>
+        <button type="button" class="button" >t</button>
+        <button type="button" class="button" >y</button>
+        <button type="button" class="button" >u</button>
+        <button type="button" class="button" >i</button>
+        <button type="button" class="button" >o</button>
+        <button type="button" class="button" >p</button>
+        <button type="button" class="button" >a</button>
+        <button type="button" class="button" >s</button>
+        <button type="button" class="button" >d</button>
+        <button type="button" class="button" >f</button>
+        <button type="button" class="button" >g</button>
+        <button type="button" class="button" >h</button>
+        <button type="button" class="button" >j</button>
+        <button type="button" class="button" >k</button>
+        <button type="button" class="button" >l</button>
+        <button type="button" class="button" >ñ</button>
+        <button type="button" class="mayus">⏏</button>
+        <button type="button" class="button" >z</button>
+        <button type="button" class="button" >x</button>
+        <button type="button" class="button" >c</button>
+        <button type="button" class="button" >v</button>
+        <button type="button" class="button" >b</button>
+        <button type="button" class="button" >n</button>
+        <button type="button" class="button" >m</button>
+        <button type="button" class="del_start">➡</button>
+        <button type="button" class="del_end">⬅</button>
+        <button type="button" class="del_word">CE</button>
+        <button type="button" class="button">,</button>
+        <button type="button" id="space" class="button"> </button>
+        <button type="button" class="button">. </button>
+        <button type="button" class="del_all">C</button>
+        <button type="button" class="enter">↩</button>
+      </div>
+  <!-- TODO crear div teclado de los emojis -->
+    <div id="tecl_emoj" style="display: none">
+      <button type="button" class="button">😁</button>
+      <button type="button" class="button">😀</button>
+      <button type="button" class="button">🤣</button>
+      <button type="button" class="button">🤔</button>
+      <button type="button" class="button">🤨</button>
+      <button type="button" class="button">😑</button>
+      <button type="button" class="button">😭</button>
+      <button type="button" class="button">😡</button>
+      <button type="button" class="button">😱</button>
+      <button type="button" class="button">🍻</button>
+      <button type="button" class="button">🍣</button>
+      <button type="button" class="button">🍕</button>
+      <button type="button" class="button">🧡</button>
+      <button type="button" class="button">💚</button>
+      <button type="button" class="button">💙</button>
+      <button type="button" class="button">💔</button>
+    </div>
+  </div>
+</div>
+</body>
+<script src="js/script.js"></script>
+</html>
