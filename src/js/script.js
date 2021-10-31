@@ -89,8 +89,8 @@ const teclado = {
         document.getElementById("teclas").className = "upcase";
         estadoLetras();
         fecha();
-        // let element = document.getElementById("mensajes");
-        // element.scrollTop = element.scrollHeight;
+        let element = document.getElementById("mensajes");
+        element.scrollTop = element.scrollHeight;
       });
     });
   },
@@ -135,7 +135,7 @@ const teclado = {
 function ocultarTeclado(id) {
   let tecla = document.getElementById(id);
   if (tecla.style.display === "none") {
-    tecla.style.display = "block";
+    tecla.style.display = "flex";
   } else {
     tecla.style.display = "none";
   }
